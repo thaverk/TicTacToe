@@ -19,20 +19,14 @@ namespace TicTacToeSubmissionConole
         }
 
         public static string[,] pos = { { "", "", "" }, { "", "", "" }, { "", "", "" } };
-        public static string[] position = { "", "", "", "", "", "", "", "", "" };
+       
 
         public void Run()
         {
 
-            pos[0, 0] = position[0];
-            pos[0, 1] = position[1];
-            pos[0, 2] = position[2];
-            pos[1, 0] = position[3];
-            pos[1, 1] = position[4];
-            pos[1, 2] = position[5];
-            pos[2, 0] = position[6];
-            pos[2, 1] = position[7];
-            pos[2, 2] = position[8];
+            int xturn = 0;
+            int oturn = 0;
+
 
 
             // FOR ILLUSTRATION CHANGE TO YOUR OWN LOGIC TO DO TIC TAC TOE
@@ -40,9 +34,7 @@ namespace TicTacToeSubmissionConole
 
             while (true)
             {
-                int xturn = 0;
-                int oturn = 0;
-
+                
                 while (true)
                 {
                     Console.SetCursorPosition(2, 19);
@@ -70,23 +62,90 @@ namespace TicTacToeSubmissionConole
                         xturn += 1;
                         break;
                     }
-
+                    
                     else
                     {
                         Console.Clear();
                         Console.SetCursorPosition(2, 24);
                         Console.WriteLine("Try Again");
-
+                        
                     }
 
+                   
 
                 }
+              
+                
+                
+                    if (pos[0, 0] == "X" && pos[0, 1] == "X" && pos[0, 2] == "X") // Horizontal ----------------------------------------
+                    {
+                        Console.Clear();
+                        Console.SetCursorPosition(10, 2);
+                        Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+                    else if (pos[1, 0] == "X" && pos[1, 1] == "X" && pos[1, 2] == "X")
+                    {
+                        Console.Clear();
+                        Console.SetCursorPosition(10, 2);
+                        Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+                    else if (pos[2, 0] == "X" && pos[2, 1] == "X" && pos[2,2] == "X")
+                    {
+                        Console.Clear();
+                         Console.SetCursorPosition(10, 2);
+                        Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+
+                    else if( pos[0, 0] == "X" && pos[1, 1] == "X" && pos[2, 2] == "X") // Diagonal -----------------------------------------
+                    {
+                        Console.Clear();
+                        Console.SetCursorPosition(10, 2);
+                         Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+                    else if (pos[2, 0] == "X" && pos[1, 1] == "X" && pos[2, 2] == "X")
+                    {
+                        Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+
+                    else if (pos[0, 0] == "X" && pos[1, 0] == "X" && pos[2,0] == "X") // Coloumns ------------------------------------------
+                    {
+                        Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+                    else if (pos[0, 1] == "X" && pos[1, 1] == "X" && pos[2, 1] == "X")
+                    {
+                        Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+                    else if (pos[0, 2] == "X" && pos[1, 2] == "X" && pos[2, 2] == "X")
+                    {
+                        Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                        break;
+                    }
+               
+                    
+                
+                
 
 
-
-
-                if (xturn == 5)
+                if (xturn == 5&oturn==4)
                 {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Draw!!!");
                     break;
                 }
 
@@ -114,6 +173,7 @@ namespace TicTacToeSubmissionConole
                         _boardRenderer.AddMove(int.Parse(row1), int.Parse(column1), PlayerEnum.O, true);
                         pos[int.Parse(row1), int.Parse(column1)] = "O";
                         oturn += 1;
+                        break;
                     }
 
                     else
@@ -121,116 +181,85 @@ namespace TicTacToeSubmissionConole
                         Console.Clear();
                         Console.SetCursorPosition(2, 24);
                         Console.WriteLine("Try Again");
-                        continue;
-
-
+                 
                     }
-
-
-
-
-
-
-
-                    if (position[0] == "O" && position[1] == "O" && position[2] == "O") // Horizontal ----------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player O Wins!!!");
-
-                    }
-                    else if (position[3] == "O" && position[4] == "O" && position[5] == "O")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player O Wins!!!");
-                    }
-                    else if (position[6] == "O" && position[7] == "O" && position[8] == "O")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player O Wins!!!");
-                    }
-
-                    else if (position[0] == "O" && position[4] == "O" && position[8] == "O") // Diagonal -----------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player O Wins!!!");
-                    }
-                    else if (position[6] == "O" && position[4] == "O" && position[2] == "O")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player O Wins!!!");
-                    }
-
-                    else if (position[0] == "O" && position[3] == "O" && position[6] == "O")// Coloumns ------------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player 0 Wins!!!");
-                    }
-                    else if (position[1] == "O" && position[4] == "O" && position[7] == "O")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player 0 Wins!!!");
-                    }
-                    else if (position[2] == "O" && position[5] == "O" && position[8] == "O")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player 0 Wins!!!");
-                    }
-
-                    if (position[0] == "X" && position[1] == "X" && position[2] == "X") // Horizontal ----------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else if (position[3] == "X" && position[4] == "X" && position[5] == "X")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else if (position[6] == "X" && position[7] == "X" && position[8] == "X")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-
-                    else if (position[0] == "X" && position[4] == "X" && position[8] == "X") // Diagonal -----------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else if (position[6] == "X" && position[4] == "X" && position[2] == "X")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-
-                    else if (position[0] == "X" && position[3] == "X" && position[6] == "X") // Coloumns ------------------------------------------
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else if (position[1] == "X" && position[4] == "X" && position[7] == "X")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else if (position[2] == "X" && position[5] == "X" && position[8] == "X")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Player X Wins!!!");
-                    }
-                    else // No winner ----------------------------------------------
-                    {
-
-                        Console.Clear();
-                        Console.WriteLine("DRAW!!!!!!!!!!");
-
-                    }
-
-
-
-
-
+                   
                 }
+
+                if (pos[0, 0] == "O" && pos[0, 1] == "O" && pos[0, 2] == "O") // Horizontal ----------------------------------------
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player O Wins!!!");
+                    break;
+                }
+                else if (pos[1, 0] == "O" && pos[1, 1] == "O" && pos[1, 2] == "O")
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player O Wins!!!");
+                    break;
+                }
+                else if (pos[2, 0] == "O" && pos[2, 1] == "O" && pos[2, 2] == "O")
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player O Wins!!!");
+                    break;
+                }
+
+                else if (pos[0, 0] == "O" && pos[1, 1] == "O" && pos[2, 2] == "O") // Diagonal -----------------------------------------
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                    break;
+                }
+                else if (pos[2, 0] == "O" && pos[1, 1] == "O" && pos[2, 2] == "O")
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                    break;
+                }
+
+                else if (pos[0, 0] == "O" && pos[1, 0] == "O" && pos[2, 0] == "O") // Coloumns ------------------------------------------
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player X Wins!!!");
+                    break;
+                }
+                else if (pos[0, 1] == "O" && pos[1, 1] == "O" && pos[2, 1] == "O")
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player O Wins!!!");
+                    break;
+                }
+                else if (pos[0, 2] == "O" && pos[1, 2] == "O" && pos[2, 2] == "O")
+                {
+                    Console.Clear();
+                    Console.SetCursorPosition(10, 2);
+                    Console.WriteLine("Player O Wins!!!");
+                    break;
+                }
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             }
 
         }
